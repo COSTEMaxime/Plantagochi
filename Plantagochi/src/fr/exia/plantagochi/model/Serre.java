@@ -35,4 +35,13 @@ public class Serre {
 		return output;
 	}
 
+	public Plante getPlante(int i) {
+		for (Plante plante : plantes){
+			if (plante.getIDPlante() == i)	{
+				return plante;
+			}
+		}
+		return null;
+	}
+
 }

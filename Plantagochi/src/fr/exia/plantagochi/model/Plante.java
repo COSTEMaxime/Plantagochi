@@ -1,6 +1,8 @@
 package fr.exia.plantagochi.model;
 
-public class Plante {
+import java.util.Observable;
+
+public class Plante extends Observable {
 	
 	private int IDPlante;
 	
@@ -12,14 +14,17 @@ public class Plante {
 	private Espece espece;
 	
 
-	public Plante(int iDPlante, float temperatureAir, float humiditeAir, float humiditeSol, float tauxLuminosite,
-			Espece espece) {
+	public Plante(int iDPlante, float temperatureAir, float humiditeAir, float humiditeSol, float tauxLuminosite, Espece espece) {
 		IDPlante = iDPlante;
 		this.temperatureAir = temperatureAir;
 		this.humiditeAir = humiditeAir;
 		this.humiditeSol = humiditeSol;
 		this.tauxLuminosite = tauxLuminosite;
 		this.espece = espece;
+	}
+
+	public Plante(int IDPlante, Espece espece) {
+		this(IDPlante, 0, 0, 0, 0, espece);
 	}
 
 	public int getIDPlante() {
@@ -61,4 +66,9 @@ public class Plante {
 	public Espece getEspece() {
 		return espece;
 	}
+	
+	public void hasBeenChanged()	{
+		setChanged();
+	}
+	
 }
